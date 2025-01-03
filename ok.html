@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Wishes</title>
+<style>
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+
+p {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Birthday Wishes</h1>
+    <p>Enter the name of the person:</p>
+    <input type="text" id="name" placeholder="Enter Name">
+    <a href="greetings.html"><button onclick="generateWish()">Generate Wish</button></a>
+    <p id="result"></p>
+</div>
+
+<script>
+function generateWish() {
+    var name = document.getElementById("name").value;
+    if (name === "") {
+        document.getElementById("result").innerHTML = "Please enter a name.";
+        return;
+    }
+
+    var wishes = [
+        "Happy Birthday, " + name + "! I hope you have a wonderful day filled with joy and laughter.",
+        "Wishing you a very Happy Birthday, " + name + "! May your day be special in every way.",
+        "Happy Birthday to the amazing " + name + "! May all your dreams come true.",
+        "Sending you the warmest birthday wishes, " + name + ". Have a fantastic day!"
+    ];
+
+    var randomIndex = Math.floor(Math.random() * wishes.length);
+    var randomWish = wishes[randomIndex];
+
+    document.getElementById("result").innerHTML = randomWish;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 200px;
+  text-align: center;
+  justify-content: center;
+  animation: colorChange 5s infinite;
+}
+
+.photo {
+
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  animation: rotate 5s linear infinite;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message {
+  font-size: 18px;
+  animation: fade 2s infinite;
+}
+
+@keyframes colorChange {
+  0% { background-color: #f0f0f0; }
+  25% { background-color: #e6f7ff; }
+  50% { background-color: #ffefd5; }
+  75% { background-color: #d9edf7; }
+  100% { background-color: #f0f0f0; }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fade {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="photo">
+    <img src="sis.jpg" alt="Photo 1">
+  </div>
+  <h2>Happy Birthday! jyo sis</h2>
+  <p class="message">Wishing you a day filled with joy and happiness.</p>
+</div>
+
+<script>
+// JavaScript to dynamically change messages
+const messages = [
+  "May your day be filled with laughter and love.",
+  "Wishing you all the best on your special day.",
+  "Hope you have a wonderful birthday celebration! sis"
+];
+
+let messageIndex = 0;
+
+setInterval(() => {
+  const messageElement = document.querySelector('.message');
+  messageElement.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length; 
+}, 3000); // Change message every 3 seconds
+</script>
+
+</body>
+</html>
